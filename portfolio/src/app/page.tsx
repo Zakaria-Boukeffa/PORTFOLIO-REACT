@@ -1,14 +1,18 @@
 import styles from "./page.module.css";
 import Navbar from "./components/Navbar";
+import About from "./components/About";
 
 function Home() {
   return (
     <>
       <Navbar />
-      {/* Other sections will go here */}
-      <div style={{ height: "200vh", background: "#222" }}>
-        {/* Temporary content to make scrolling possible */}
-      </div>
+      <main>
+        <About />
+        {/* Other sections will go here */}
+        <div style={{ height: "200vh", background: "#222" }}>
+          {/* Temporary content for scrolling */}
+        </div>
+      </main>
     </>
   );
 }
