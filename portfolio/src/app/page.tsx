@@ -1,16 +1,16 @@
 import styles from "./page.module.css";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
+import HeroSection from "./components/HeroSection";
 
 function Home() {
   return (
     <>
       <Navbar />
       <main>
+        <HeroSection />
         <About />
-        {/* Other sections will go here */}
         <div style={{ height: "200vh", background: "#222" }}>
-          {/* Temporary content for scrolling */}
         </div>
       </main>
     </>
