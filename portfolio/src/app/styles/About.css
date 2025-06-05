@@ -1,14 +1,18 @@
 .about-section {
   width: 100%;
-  background: #181818; /* Or your site bg */
+  background: #000;
   color: #fff;
   padding: 80px 0 40px 0;
+  min-height: 100vh;        /* Full page height */
+  display: flex;
+  align-items: center;      /* Vertically center */
 }
 
 .about-container {
   max-width: 700px;
-  margin: 0 auto;
-  padding: 0 24px;
+  margin-left: 8vw;
+  margin-right: auto;
+  padding: 0;
   text-align: left;
 }
 
@@ -24,9 +28,16 @@
   margin-bottom: 1rem;
 }
 
+@media (max-width: 900px) {
+  .about-container {
+    margin-left: 4vw;
+  }
+}
+
 @media (max-width: 600px) {
   .about-container {
-    padding: 0 12px;
+    margin-left: 2vw;
+    padding-right: 2vw;
   }
   .about-container h2 {
     font-size: 1.3rem;

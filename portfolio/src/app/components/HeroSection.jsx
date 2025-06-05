@@ -2,12 +2,47 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/HeroSection.css";
 
+// Linear interpolation helper
+function lerp(start, end, factor) {
+  return start + (end - start) * factor;
+}
+
 function HeroSection() {
   const moonRef = useRef(null);
   const quoteRef = useRef(null);
   const canvasRef = useRef(null);
 
-  // Star animation effect
+  // SMOOTH PARALLAX EFFECT
+  useEffect(() => {
+    let animationFrameId = null;
+    const moonY = { current: 0 };
+    const quoteY = { current: 0 };
+
+    function animateParallax() {
+      const scrollY = window.scrollY;
+      const moonTarget = Math.min(scrollY * 0.6, 100);
+      const quoteTarget = Math.min(scrollY * 0.3, 85);
+
+      moonY.current = lerp(moonY.current, moonTarget, 0.1);
+      quoteY.current = lerp(quoteY.current, quoteTarget, 0.1);
+
+      if (moonRef.current) {
+        moonRef.current.style.transform = `translateY(${moonY.current}px)`;
+      }
+      if (quoteRef.current) {
+        quoteRef.current.style.transform = `translateY(${quoteY.current}px)`;
+      }
+      animationFrameId = requestAnimationFrame(animateParallax);
+    }
+
+    animateParallax();
+
+    return () => {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  // ANIMATED STARS CANVAS
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -20,21 +55,20 @@ function HeroSection() {
     }
 
     function createStars() {
-    stars = [];
-    const starCount = Math.floor(window.innerWidth / 2);
-        for (let i = 0; i < starCount; i++) {
-          stars.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            radius: Math.random() * 0.8 + 0.2,
-            speed: Math.random() * 0.15 + 0.05,
-            direction: Math.random() < 0.5 ? 1 : -1, // left or right
-            opacity: Math.random() * 0.7 + 0.3
+      stars = [];
+      const starCount = Math.floor(window.innerWidth / 2);
+      for (let i = 0; i < starCount; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 0.8 + 0.2,
+          speed: Math.random() * 0.15 + 0.05,
+          direction: Math.random() < 0.5 ? 1 : -1, // left or right
+          opacity: Math.random() * 0.7 + 0.3
         });
       }
     }
 
-    
     function animateStars() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.globalAlpha = 1;
@@ -45,9 +79,7 @@ function HeroSection() {
         ctx.shadowColor = "#fff";
         ctx.shadowBlur = 4;
         ctx.fill();
-        // Move star left or right
         star.x += star.speed * star.direction;
-        // Wrap around
         if (star.direction === 1 && star.x > canvas.width) {
           star.x = 0;
           star.y = Math.random() * canvas.height;
@@ -73,23 +105,6 @@ function HeroSection() {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", resizeCanvas);
     };
-  }, []);
-
-  // Parallax effect for moon and quote
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const moonMove = Math.min(scrollY * 0.6, 100);
-      if (moonRef.current) {
-        moonRef.current.style.transform = `translateY(${moonMove}px)`;
-      }
-      const quoteMove = Math.min(scrollY * 0.3, 85);
-      if (quoteRef.current) {
-        quoteRef.current.style.transform = `translateY(${quoteMove}px)`;
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
