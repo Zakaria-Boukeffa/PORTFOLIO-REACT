@@ -7,11 +7,12 @@
   z-index: 100;
 }
 
+/* === DESKTOP === */
 .navbar ul {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  padding: 1.3rem 0; 
+  padding: 1.3rem 0;
   margin: 0;
   list-style: none;
 }
@@ -20,7 +21,7 @@
   color: #f6f6f6;
   text-decoration: none;
   font-weight: 500;
-  padding: 0.4rem 0.4rem; /* Reduced padding to make hover effect closer to the text */
+  padding: 0.4rem 0.4rem;
   border-radius: 4px;
   transition: background 0.15s, color 0.15s;
 }
@@ -32,9 +33,50 @@
   outline: none;
 }
 
-@media (max-width: 600px) {
+/* === MOBILE (burger only visible here) === */
+@media (max-width: 768px) {
+  .navbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+  }
+
+  .burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .burger-line {
+    width: 24px;
+    height: 3px;
+    background-color: #f6f6f6;
+    transition: all 0.3s ease;
+  }
+
   .navbar ul {
     flex-direction: column;
+    background-color: #000;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0;
     gap: 1rem;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  .navbar ul.show {
+    opacity: 1;
+    transform: translateY(0);
+    padding: 1.2rem 0;
+    pointer-events: all;
   }
 }
