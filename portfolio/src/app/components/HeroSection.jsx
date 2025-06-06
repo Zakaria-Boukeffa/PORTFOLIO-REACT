@@ -2,7 +2,6 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/HeroSection.css";
 
-// Linear interpolation helper
 function lerp(start, end, factor) {
   return start + (end - start) * factor;
 }
@@ -12,7 +11,6 @@ function HeroSection() {
   const quoteRef = useRef(null);
   const canvasRef = useRef(null);
 
-  // SMOOTH PARALLAX EFFECT
   useEffect(() => {
     let animationFrameId = null;
     const moonY = { current: 0 };
@@ -42,7 +40,6 @@ function HeroSection() {
     };
   }, []);
 
-  // ANIMATED STARS CANVAS
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -63,7 +60,7 @@ function HeroSection() {
           y: Math.random() * canvas.height,
           radius: Math.random() * 0.8 + 0.2,
           speed: Math.random() * 0.15 + 0.05,
-          direction: Math.random() < 0.5 ? 1 : -1, // left or right
+          direction: Math.random() < 0.5 ? 1 : -1,
           opacity: Math.random() * 0.7 + 0.3
         });
       }
@@ -109,17 +106,11 @@ function HeroSection() {
 
   return (
     <section className="hero-section" id="hero">
-      {/* Animated stars canvas */}
-      <canvas
-        ref={canvasRef}
-        className="stars-canvas"
-        aria-hidden="true"
-        tabIndex={-1}
-      />
-      {/* Very faint background image, 0.1 opacity */}
+      <canvas ref={canvasRef} className="stars-canvas" aria-hidden="true" tabIndex={-1} />
       <div className="stars-bg-img"></div>
       <img ref={moonRef} src="/moon.png" alt="Moon" className="moon-img" />
       <img src="/boy.png" alt="Boy looking at sky" className="boy-img" />
+      <div className="ground-overlay"></div>
       <div className="hero-content quote-overlay" ref={quoteRef}>
         <h1>
           Aim for the moon,<br />
