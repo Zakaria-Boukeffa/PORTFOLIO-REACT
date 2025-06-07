@@ -3,39 +3,37 @@ import "../styles/Experience.css";
 
 const experiences = [
   {
-    role: "Computer Vision Developer",
-    company: "Wildlens",
-    period: "2023 – Present",
-    description: "Developed and deployed AI models for wildlife monitoring, including real-time detection and tracking solutions."
+    role: "AI & Data Science Intern",
+    company: "Targech",
+    period: "9 March – 30 May",
+    logo: "/Targech.jpg",
+    description:
+      "Designed and implemented ML pipelines, including preprocessing, model training, and evaluation for client-specific datasets."
   },
   {
-    role: "AI Engineer Intern",
-    company: "Bhive",
-    period: "2023",
-    description: "Built and optimized NLP pipelines for CV parsing and candidate ranking in a production SaaS platform."
-  },
-  {
-    role: "ML/DL Developer",
-    company: "Freelance",
-    period: "2022 – Present",
-    description: "Delivered custom machine learning models for clients, including predictive analytics and computer vision tasks."
+    role: "AI Engineering & Development Intern",
+    company: "Info Jeunes",
+    period: "9 June – 28 July",
+    logo: "/crij-logo.jpg",
+    description:
+      "Built and tested AI prototypes focused on recommendation systems and content analysis using NLP models."
   }
 ];
 
 function Experience() {
   return (
-    <section className="experience-section" id="experience">
-      <h2 className="experience-title">Experience</h2>
-      <div className="experience-grid">
+    <section className="projects-section" id="experience">
+      <h2 className="projects-title">Experience</h2>
+      <p className="projects-subtext">My recent professional experiences.</p>
+      <div className="projects-grid">
         {experiences.map((exp, idx) => (
-          <div className="experience-card" key={idx}>
-            <div className="experience-blank-img" />
-            <div className="experience-details">
-              <h3 className="experience-role">{exp.role}</h3>
-              <span className="experience-company">{exp.company}</span>
-              <span className="experience-period">{exp.period}</span>
-              <p className="experience-desc">{exp.description}</p>
+          <div className="project-card" key={idx}>
+            <div className="project-image-wrapper">
+              <img src={exp.logo} alt={exp.company} className="experience-image" />
             </div>
+            <h3 className="project-name">{exp.role}</h3>
+            <p className="project-desc">{exp.company} — {exp.period}</p>
+            <p className="project-desc">{exp.description}</p>
           </div>
         ))}
       </div>

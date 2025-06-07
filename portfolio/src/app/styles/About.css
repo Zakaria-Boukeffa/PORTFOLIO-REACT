@@ -9,9 +9,9 @@
 }
 
 .about-container {
-  margin-left: 8vw;                  
-  width: calc(100% - 10vw * 2);       
-  max-width: 2000px;                  
+  margin-left: 8vw;
+  margin-right: 8vw;
+  max-width: 1200px;
   text-align: left;
 }
 
@@ -29,17 +29,18 @@
   white-space: normal;
 }
 
+/* ✅ Match .projects-title spacing */
 @media (max-width: 900px) {
   .about-container {
     margin-left: 4vw;
-    width: calc(100% - 8vw);
+    margin-right: 4vw;
   }
 }
 
 @media (max-width: 600px) {
   .about-container {
-    margin-left: 2vw;
-    width: calc(100% - 4vw);
+    margin-left: 4vw; /* was 2vw — now matches projects */
+    margin-right: 4vw;
   }
 
   .about-container h2 {
