@@ -25,27 +25,31 @@ const contacts = [
 function Contact() {
   return (
     <section className="contact-section" id="contact">
-      <h2 className="contact-title">Contact</h2>
-      <p className="contact-subtext">
-        Wanna collaborate, ask something, or just say hi ? Contact me:
-      </p>
-      <div className="contact-list">
-        {contacts.map((item, idx) => (
-          <a
-            key={idx}
-            href={item.link}
-            className="contact-item"
-            target={item.label === "Email" || item.label === "Phone" ? "_self" : "_blank"}
-            rel="noopener noreferrer"
-          >
-            <img src={item.icon} alt={item.label} className="contact-icon" />
-            <span className="contact-label">{item.label}:</span>
-            <span className="contact-value">{item.value}</span>
-          </a>
-        ))}
+      <div className="contact-content">
+        <h2 className="contact-title">Contact</h2>
+        <p className="contact-subtext">
+          Wanna collaborate, ask something, or just say hi ? Contact me:
+        </p>
+        <div className="contact-list">
+          {contacts.map((item, idx) => (
+            <a
+              key={idx}
+              href={item.link}
+              className="contact-item"
+              target={item.label === "Email" || item.label === "Phone" ? "_self" : "_blank"}
+              rel="noopener noreferrer"
+            >
+              <img src={item.icon} alt={item.label} className="contact-icon" />
+              <span className="contact-label">{item.label}:</span>
+              <span className="contact-value">{item.value}</span>
+            </a>
+          ))}
+        </div>
       </div>
-      <p className="peace-sign">Peace (; </p>
+
+      <p className="peace-sign">Peace (;</p>
     </section>
+
   );
 }
 
