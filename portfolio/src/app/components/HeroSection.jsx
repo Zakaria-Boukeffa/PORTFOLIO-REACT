@@ -108,8 +108,8 @@ function HeroSection() {
     <section className="hero-section" id="hero">
       <canvas ref={canvasRef} className="stars-canvas" aria-hidden="true" tabIndex={-1} />
       <div className="stars-bg-img"></div>
-      <img ref={moonRef} src="/moon.png" alt="Moon" className="Moon-img" />
-      <img src="/boy.png" alt="Boy looking at sky" className="Boy-img" />
+      <img ref={moonRef} src="/Moon.png" alt="Moon" className="moon-img" />
+      <img src="/Moy.png" alt="Boy looking at sky" className="boy-img" />
       <div className="ground-overlay"></div>
       <div className="hero-content quote-overlay" ref={quoteRef}>
         <h1>
