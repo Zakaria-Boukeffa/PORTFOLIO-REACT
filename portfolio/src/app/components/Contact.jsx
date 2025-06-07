@@ -6,32 +6,29 @@ const contacts = [
     label: "Email",
     value: "zakaria.boukeffa.3@gmail.com",
     link: "mailto:zakaria.boukeffa.3@gmail.com",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg"
+    icon: "https://cdn-icons-png.flaticon.com/512/561/561127.png"
   },
   {
     label: "Phone",
     value: "+33 7 44 42 26 04",
     link: "tel:+33744422604",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg" // Using Apple as a generic phone icon
+    icon: "https://cdn-icons-png.flaticon.com/512/597/597177.png" 
   },
   {
     label: "LinkedIn",
-    value: "zakaria-boukeffa",
+    value: "Zakaria Boukeffa",
     link: "https://www.linkedin.com/in/zakaria-boukeffa-755275348/",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg"
   },
-  {
-    label: "GitHub",
-    value: "zakaria-boukeffa",
-    link: "https://github.com/zakaria-boukeffa",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
-  }
 ];
 
 function Contact() {
   return (
     <section className="contact-section" id="contact">
       <h2 className="contact-title">Contact</h2>
+      <p className="contact-subtext">
+        Wanna collaborate, ask something, or just say hi ? Contact me:
+      </p>
       <div className="contact-list">
         {contacts.map((item, idx) => (
           <a
@@ -47,6 +44,7 @@ function Contact() {
           </a>
         ))}
       </div>
+      <p className="peace-sign">Peace (; </p>
     </section>
   );
 }

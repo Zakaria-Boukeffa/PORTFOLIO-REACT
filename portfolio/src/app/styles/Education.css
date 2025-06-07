@@ -2,14 +2,22 @@
   width: 100%;
   background: #000;
   color: #fff;
-  padding: 80px 0 40px 0;
+  padding: 80px 0 80px 0; 
 }
 
 .education-title {
   margin-left: 8vw;
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem; 
   font-weight: bold;
+}
+
+.education-subtext {
+  margin-left: 8vw;
+  font-size: 1rem;
+  margin-bottom: 2rem; 
+  color: #fff;
+  font-weight: 400;
 }
 
 .education-stack {
@@ -21,19 +29,19 @@
 }
 
 .education-card {
-  background: #181818;
-  border-radius: 6px; /* modifié ici */
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.15);
+  background: transparent;
+  border-radius: 6px;
   width: 100%;
   max-width: 720px;
   min-height: 120px;
   display: flex;
   align-items: center;
   padding: 1.5rem 2rem;
-  transition: box-shadow 0.15s;
+  transition: background 0.2s ease-in-out, box-shadow 0.15s;
 }
 
 .education-card:hover {
+  background: #181818;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -41,7 +49,7 @@
   width: 150px;
   height: 90px;
   object-fit: cover;
-  border-radius: 4px; /* modifié ici */
+  border-radius: 4px;
   margin-right: 2rem;
   border: 1.5px solid #eee;
   flex-shrink: 0;
@@ -71,14 +79,6 @@
   color: #ccc;
 }
 
-.education-subtext {
-  margin-left: 8vw;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  color: #fff;
-  font-weight: 400;
-}
-
 .education-certifications {
   margin-left: 8vw;
   font-size: 1rem;
@@ -88,14 +88,9 @@
 }
 
 @media (max-width: 900px) {
+  .education-title,
   .education-subtext,
   .education-certifications {
-    margin-left: 4vw;
-  }
-}
-
-@media (max-width: 900px) {
-  .education-title {
     margin-left: 4vw;
   }
 
